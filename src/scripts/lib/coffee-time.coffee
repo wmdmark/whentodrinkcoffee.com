@@ -13,7 +13,8 @@ module.exports =
     moment().hours() + moment().minutes()/60
 
   getMoodScore: (hr)->
-    # :returns: 0 - 1 based mood score
+    # :returns: 0 - 1 based mood score based on proximity
+    # to peak coffee time!
     currentRange = @getCurrentCoffeeRange(hr)
     if currentRange
       # Inside range: score based on closeness to peak
