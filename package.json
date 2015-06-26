@@ -1,0 +1,67 @@
+{
+  "name": "whentodrinkcoffee.com",
+  "description": "Tells you when to drink coffee.",
+  "version": "0.0.1",
+  "author": "Mark Johnson",
+  "bugs": "https://github.com/wmdmark/whentodrinkcoffee.com/issues",
+  "dependencies": {
+    "cjsx-loader": "^1.3.0",
+    "coffee-loader": "^0.7.2",
+    "coffee-react-transform": "^2.4.0",
+    "coffee-script": "^1.9.1",
+    "css-loader": "^0.9.1",
+    "gulp": "^3.8.11",
+    "gulp-compass": "^2.0.3",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-shell": "^0.3.0",
+    "gulp-size": "^1.2.1",
+    "gulp-util": "^3.0.4",
+    "highlight.js": "^8.4.0",
+    "map-stream": "0.0.5",
+    "react": "^0.12.2",
+    "react-hot-loader": "^1.1.7",
+    "react-retina-image": "^1.1.2",
+    "react-router": "^0.12.4",
+    "style-loader": "^0.8.3",
+    "touch": "0.0.3",
+    "underscore": "~1.8.3",
+    "webpack": "^1.7.2",
+    "webpack-dev-server": "^1.7.0",
+    "moment": "~2.10.3"
+  },
+  "homepage": "https://github.com/wmdmark/whentodrinkcoffee.com",
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ],
+    "testFileExtensions": [
+      "coffee",
+      "js",
+      "cjsx"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "coffee",
+      "cjsx"
+    ]
+  },
+  "keywords": [
+    "react",
+    "coffeescript",
+    "coffee"
+  ],
+  "license": "MIT",
+  "main": "server.coffee",
+  "repository": "git@github.com:wmdmark/whentodrinkcoffee.com.git",
+  "scripts": {
+    "watch": "./node_modules/.bin/gulp watch",
+    "build": "./node_modules/.bin/gulp build",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "mocha": "~2.2.5"
+  }
+}
