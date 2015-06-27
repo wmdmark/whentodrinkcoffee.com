@@ -2,18 +2,23 @@ Button = require './components/Button'
 CoverImage = require './components/CoverImage'
 
 module.exports = React.createClass
+  mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
   displayName: 'App'
+
   render: ->
-    <div>
-      <section>
-        <h1>CJSX File hotloading!!</h1>
-        <Button kind='primary'>Primary Button</Button>
-        <Button kind='warning'>Warning Button</Button>
-      </section>
-      <section>
-        <CoverImage image="http://placeimg.com/1000/1000/arch" ratio="2/1" />
-        <CoverImage image="http://placeimg.com/1000/1000/nature" ratio="3/1"/>
-        <CoverImage image="http://placeimg.com/1000/1000/people" ratio="16/9"/>
-        <CoverImage image="http://placeimg.com/1000/1000/people" ratio="4/3"/>
-      </section>
+    <div style={styles.container}>
+      <h1 style={styles.header}>This is the heading that is long</h1>
     </div>
+
+styles =
+  container:
+    height: "100%"
+    width: "100%"
+    padding: 10
+    background: "linear-gradient(45deg,red,yellow)"
+  header:
+    margin: 0
+    fontFamily: "Roboto, sans-serif"
+    fontWeight: 900
+    fontSize: "10vw"
+    color: "#fff"

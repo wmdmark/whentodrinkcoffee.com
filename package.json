@@ -1,7 +1,7 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "whentodrinkcoffee.com",
   "version": "0.0.1",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "description": "Now",
   "scripts": {
     "start": "node server.js"
   },

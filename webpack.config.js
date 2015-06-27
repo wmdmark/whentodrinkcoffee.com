@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './scripts/index'
+    './src/index'
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -24,15 +24,15 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'scripts')
+      include: path.join(__dirname, 'src')
     },{
       test: /\.cjsx?$/,
       loaders: ['react-hot', 'coffee', 'cjsx'],
-      include: path.join(__dirname, 'scripts')
+      include: path.join(__dirname, 'src')
     },{
       test: /\.coffee?$/,
       loaders: ['react-hot', 'coffee'],
-      include: path.join(__dirname, 'scripts')
+      include: path.join(__dirname, 'src')
     },{
       test: require.resolve("react"),
       loader: "expose?React"
