@@ -38,6 +38,7 @@
   "dependencies": {
     "moment": "^2.10.3",
     "react": "^0.13.0",
+    "retext-emoji": "^0.5.4",
     "underscore": "^1.8.3"
   }
 }

@@ -5,7 +5,8 @@ gradients = [
 ]
 
 CoffeeTime = require("./lib/coffee-time")
-EmojiClock = require("./components/EmojiClock")
+CoffeeQuote = require("./components/CoffeeQuote")
+CoffeeCountdown = require("./components/CoffeeCountdown")
 
 module.exports = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
@@ -13,8 +14,7 @@ module.exports = React.createClass
 
   getInitialState: ->
     hr = CoffeeTime.getCurrentHourDecimal()
-    state = mood: CoffeeTime.getMoodScore(hr)
-    return state
+    return mood: CoffeeTime.getMoodScore(hr)
 
   componentDidMount: ->
     this.timer = setInterval(this.tick, 1000)
@@ -25,12 +25,9 @@ module.exports = React.createClass
       mood: CoffeeTime.getMoodScore(hr)
 
   render: ->
-    heading = "Bout time for dat #coffee."
     <div style={styles.container}>
-      <i className='em em-coffee' style={styles.emoji} />
-      <h1 style={styles.header}>{heading}</h1>
-      <h3>Mood is {this.state.mood}</h3>
-      <EmojiClock />
+      <CoffeeQuote mood={this.state.mood} />
+      <CoffeeCountdown mood={this.state} />
     </div>
 
 gradient = gradients[2]

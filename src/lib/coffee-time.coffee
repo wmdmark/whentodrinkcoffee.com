@@ -36,7 +36,7 @@ module.exports =
 
   getClosestRange: (hr)->
     validRanges = _.filter coffeeTimes, (range)-> range.start >= hr
-    if not validRanges
+    if not validRanges.length
       # circle around
       return coffeeTimes[0]
     else
