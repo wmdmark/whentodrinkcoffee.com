@@ -1,12 +1,14 @@
+moment = require("moment")
+CoffeeTime = require("./lib/coffee-time")
+CoffeeQuote = require("./components/CoffeeQuote")
+CoffeeCountdown = require("./components/CoffeeCountdown")
+
 gradients = [
   ["#ea3f75","#da56f9"]
   ["#337db9","#50e3c2"]
   ["#3ea8dc","#e587fb"]
 ]
 
-CoffeeTime = require("./lib/coffee-time")
-CoffeeQuote = require("./components/CoffeeQuote")
-CoffeeCountdown = require("./components/CoffeeCountdown")
 
 module.exports = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
@@ -17,7 +19,7 @@ module.exports = React.createClass
     return mood: CoffeeTime.getMoodScore(hr)
 
   componentDidMount: ->
-    this.timer = setInterval(this.tick, 1000)
+    #this.timer = setInterval(this.tick, 1000)
 
   tick: ->
     hr = CoffeeTime.getCurrentHourDecimal()
@@ -25,9 +27,20 @@ module.exports = React.createClass
       mood: CoffeeTime.getMoodScore(hr)
 
   render: ->
+    hr = 10#CoffeeTime.getCurrentHourDecimal()
+    date = moment().hour(hr)
+    range = CoffeeTime.getRange(hr)
+    props =
+      hr: hr
+      date: date
+      rangeStart: CoffeeTime.getNextStartDate(hr)
+      mood: this.state.mood
+
+    console.log "props", props
+
     <div style={styles.container}>
-      <CoffeeQuote mood={this.state.mood} />
-      <CoffeeCountdown mood={this.state} />
+      <CoffeeQuote {...props} />
+      <CoffeeCountdown {...props} />
     </div>
 
 gradient = gradients[2]

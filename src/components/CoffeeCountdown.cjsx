@@ -1,12 +1,15 @@
 React = require 'react'
 EmojiClock = require("./EmojiClock")
+moment = require("moment")
 
 CoffeeCountdown = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
+
   render: ->
+    label = @props.rangeStart.from(@props.date)
     <div>
-      <EmojiClock mood={this.props.mood} />
-      <h3 style={styles.label}>Time until label here</h3>
+      <EmojiClock mood={@props.mood} />
+      <h3 style={styles.label}>{label}</h3>
     </div>
 
 styles =

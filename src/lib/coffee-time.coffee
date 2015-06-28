@@ -8,6 +8,7 @@ coffeeTimes = [
 maxDiffHours = 2
 
 module.exports =
+  # TODO: convert to store!
 
   getCurrentHourDecimal: ->
     moment().hours() + moment().minutes()/60
@@ -33,6 +34,19 @@ module.exports =
         score = 1 - distance/maxDiffHours
 
     return score
+
+  getRange: (hr)->
+    range = @getCurrentCoffeeRange(hr)
+    if not range
+      range = @getClosestRange(hr)
+    range
+
+  getNextStartDate: (hr)->
+    range = @getRange(hr)
+    date = moment().hour(hr)
+    if range.end < hr
+      date.add(1, "days")
+    date
 
   getClosestRange: (hr)->
     validRanges = _.filter coffeeTimes, (range)-> range.start >= hr

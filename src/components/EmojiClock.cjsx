@@ -21,11 +21,20 @@ EmojiClock = React.createClass
     clockEmoji: clockStates[0]
     tick: 1
 
-  componentDidMount: ->
-    this.interval = setInterval(this.doTick, 100)
+  componentWillMount: ->
+    @setSpeed()
 
   componentWillUnmount: ->
-    clearInterval(this.interval)
+    clearInterval(@interval)
+
+  componentWillUpdate: (nextProps, nextState) ->
+    @setSpeed()
+
+  setSpeed: ->
+    clearInterval(@interval) if @interval?
+    speed = 500 * (1 - @props.mood) + .1
+    console.log "speed: ", speed, @props.mood
+    @interval = setInterval(this.doTick, speed)
 
   doTick: ->
     tick = this.state.tick + 1
