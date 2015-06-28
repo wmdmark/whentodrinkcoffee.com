@@ -27,25 +27,25 @@ module.exports = React.createClass
     this.setState
       mood: CoffeeTime.getMoodScore(hr)
 
-  timeTravel: ->
-    console.log "timeTravel()", @refs.hour.props.value
-    CoffeeTimeActions.setHour(@refs.hour.props.value)
+  timeTravel: (e)->
+    CoffeeTimeActions.setHour(e.target.value)
 
   render: ->
     {gradient, mood} = @state
-    console.log "App.state: ", @state
     [gs, ge] = gradient
     gradientStyle =
       background: "linear-gradient(45deg,#{gs},#{ge})"
     containerStyle = _.extend(styles.container, gradientStyle)
-    console.log "gradientStyle: ", gradientStyle
+    
+    console.log 'App.render()'
+
     <div style={containerStyle}>
       
       <CoffeeQuote {...@state} />
       <CoffeeCountdown {...@state} />
       <footer style={styles.footer}>
         
-        <input ref="hour" type="range" min="0" value={Math.floor(@state.hr)} max="24" step="1" onChange={@timeTravel} />
+        <input ref="hour" type="range" value={Math.floor(@state.hr)} min={0} max={24} step={.1} onChange={@timeTravel} />
 
         Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> hack/make Friday June 2015.
       </footer>
