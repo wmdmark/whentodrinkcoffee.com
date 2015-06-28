@@ -1,5 +1,5 @@
 moment = require("moment")
-CoffeeTime = require("./lib/coffee-time")
+CoffeeTimeStore = require("./stores/CoffeeTimeStore")
 CoffeeQuote = require("./components/CoffeeQuote")
 CoffeeCountdown = require("./components/CoffeeCountdown")
 
@@ -15,11 +15,17 @@ module.exports = React.createClass
   displayName: 'App'
 
   getInitialState: ->
-    hr = CoffeeTime.getCurrentHourDecimal()
-    return mood: CoffeeTime.getMoodScore(hr)
+    CoffeeTimeStore.getState()
 
   componentDidMount: ->
-    #this.timer = setInterval(this.tick, 1000)
+    CoffeeTimeStore.listen(@onChange)
+
+  componentWillUnmount: ->
+    CoffeeTimeStore.unlisten(@onChange)
+  
+  onChange: ->
+    console.log "CoffeeTimeStore.onChange: ", CoffeeTimeStore.getState()
+    @setState(CoffeeTimeStore.getState())
 
   tick: ->
     hr = CoffeeTime.getCurrentHourDecimal()
@@ -27,20 +33,9 @@ module.exports = React.createClass
       mood: CoffeeTime.getMoodScore(hr)
 
   render: ->
-    hr = 10#CoffeeTime.getCurrentHourDecimal()
-    date = moment().hour(hr)
-    range = CoffeeTime.getRange(hr)
-    props =
-      hr: hr
-      date: date
-      rangeStart: CoffeeTime.getNextStartDate(hr)
-      mood: this.state.mood
-
-    console.log "props", props
-
     <div style={styles.container}>
-      <CoffeeQuote {...props} />
-      <CoffeeCountdown {...props} />
+      <CoffeeQuote {...@state} />
+      <CoffeeCountdown {...@state} />
     </div>
 
 gradient = gradients[2]

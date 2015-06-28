@@ -6,10 +6,21 @@ CoffeeCountdown = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
 
   render: ->
-    label = @props.rangeStart.from(@props.date)
+    {rangeStart, date} = @props
+    console.log "rangeStart: ", rangeStart.format()
+    console.log "date: ", date.format()
+    label = rangeStart.from(date)
+    # if date.isBefore(rangeStart)
+    #   console.log "TO!"
+    #   label = rangeStart.from(date)
+    # else
+    #   console.log "FROM!"
+    #   label = rangeStart.to(date)
+
     <div>
       <EmojiClock mood={@props.mood} />
       <h3 style={styles.label}>{label}</h3>
+      <p style={{color:"#fff"}}>{@props.rangeStart.format()}</p>
     </div>
 
 styles =

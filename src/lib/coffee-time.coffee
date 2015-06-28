@@ -43,7 +43,12 @@ module.exports =
 
   getNextStartDate: (hr)->
     range = @getRange(hr)
-    date = moment().hour(hr)
+    
+    startHr = Math.floor(range.start)
+    startMinutes = (range.start * 60) - (startHr * 60)
+    console.log "startHr: ", startHr
+    console.log "startMinutes: ", startMinutes
+    date = moment().hour(range.start).minutes(startMinutes)
     if range.end < hr
       date.add(1, "days")
     date
