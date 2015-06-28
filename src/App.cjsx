@@ -3,13 +3,6 @@ CoffeeTimeStore = require("./stores/CoffeeTimeStore")
 CoffeeQuote = require("./components/CoffeeQuote")
 CoffeeCountdown = require("./components/CoffeeCountdown")
 
-gradients = [
-  ["#ea3f75","#da56f9"]
-  ["#337db9","#50e3c2"]
-  ["#3ea8dc","#e587fb"]
-]
-
-
 module.exports = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
   displayName: 'App'
@@ -24,7 +17,6 @@ module.exports = React.createClass
     CoffeeTimeStore.unlisten(@onChange)
   
   onChange: ->
-    console.log "CoffeeTimeStore.onChange: ", CoffeeTimeStore.getState()
     @setState(CoffeeTimeStore.getState())
 
   tick: ->
@@ -33,7 +25,14 @@ module.exports = React.createClass
       mood: CoffeeTime.getMoodScore(hr)
 
   render: ->
-    <div style={styles.container}>
+    {gradient, mood} = @state
+    console.log "App.state: ", @state
+    [gs, ge] = gradient
+    gradientStyle =
+      background: "linear-gradient(45deg,#{gs},#{ge})"
+    containerStyle = _.extend(styles.container, gradientStyle)
+    console.log "gradientStyle: ", gradientStyle
+    <div style={containerStyle}>
       <CoffeeQuote {...@state} />
       <CoffeeCountdown {...@state} />
       <footer style={styles.footer}>
@@ -41,13 +40,11 @@ module.exports = React.createClass
       </footer>
     </div>
 
-gradient = gradients[2]
-
 styles =
   link:
     color: "#fff"
   footer:
-    padding: "20px 0px"
+    padding: "20px"
     color: "rgba(255,255,255, .6)"
     textAlign: "center"
     position: "absolute"
@@ -57,5 +54,4 @@ styles =
   container:
     height: "100%"
     width: "100%"
-    padding: 40
-    background: "linear-gradient(45deg, #{gradient[0]},#{gradient[1]})"
+    padding: "4vw"

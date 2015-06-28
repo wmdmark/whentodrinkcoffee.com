@@ -6,16 +6,22 @@ CoffeeCountdown = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
 
   render: ->
-    {rangeStart, rangeEnd, date, range, inRange} = @props
+    {rangeStart, mood, rangeEnd, date, range, inRange} = @props
     if not inRange
       label = "Next coffee time starts #{rangeStart.from(date)}"
+      rangeLabel = "#{rangeStart.calendar(date)}"
     else
       label = "Ends #{rangeEnd.from(date)}"
+      rangeLabel = "#{rangeEnd.calendar(date)}"
 
-    rangeLabel = "#{rangeStart.format()} - #{rangeEnd.format()}"
+    speed = Math.max((1-mood) * 1000, 20)
+    if mood > .5
+      exclaims = mood - .5 * 10
+      label = "#{label}#{('!' for i in [0..exclaims]).join('')}"
+      
 
     <div>
-      <EmojiClock mood={@props.mood} />
+      <EmojiClock speed={speed} />
       <h3 style={styles.label}>{label}</h3>
       <p style={{color:"#fff"}}>{rangeLabel}</p>
     </div>
@@ -23,11 +29,11 @@ CoffeeCountdown = React.createClass
 styles =
   label:
     margin: 0
+    marginLeft: 10,
     display: "inline-block"
-    fontSize: "5vw"
+    fontSize: "4vw"
     color: "#fff"
-    fontFamily: "Roboto, sans-serif"
     fontWeight: 100
-
+    verticalAlign: "middle"
 
 module.exports = CoffeeCountdown

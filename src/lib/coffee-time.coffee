@@ -65,7 +65,8 @@ module.exports =
       return validRanges[0]
 
   isOutsideRange: (hr)->!@isInRange(hr)
-  isInRange: (hr)-> @getCurrentCoffeeRange(hr)?
+  isInRange: (hr)-> 
+    @getCurrentCoffeeRange(hr)?
 
   getCurrentCoffeeRange: (hr)->
     range = _.find coffeeTimes, (range)-> hr >= range.start and hr < range.end

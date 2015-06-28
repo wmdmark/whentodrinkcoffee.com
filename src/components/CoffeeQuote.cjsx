@@ -11,7 +11,6 @@ CoffeeQuote = React.createClass
         {quote}
       </h1>
       <Emoji code=":coffee:" />
-
     </blockquote>
 
 module.exports = CoffeeQuote
@@ -20,7 +19,6 @@ styles =
   header:
     display: "inline"
     margin: 0
-    fontFamily: "Roboto, sans-serif"
     fontWeight: 900
     fontSize: "10vw"
     color: "#fff"
