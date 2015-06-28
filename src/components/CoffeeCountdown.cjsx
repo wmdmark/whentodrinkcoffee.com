@@ -11,7 +11,12 @@ CoffeeCountdown = React.createClass
 
 styles =
   label:
+    margin: 0
+    display: "inline-block"
     fontSize: "5vw"
     color: "#fff"
+    fontFamily: "Roboto, sans-serif"
+    fontWeight: 100
+
 
 module.exports = CoffeeCountdown

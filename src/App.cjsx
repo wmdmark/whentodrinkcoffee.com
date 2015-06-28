@@ -32,22 +32,8 @@ module.exports = React.createClass
 
 gradient = gradients[2]
 styles =
-  emoji:
-    margin: "0px auto"
-    display: "block"
-    width: 64 + 10
-    height: 64 + 10
-    padding: 10
-    borderRadius: 64+10/2
-    backgroundColor: "rgba(255,255,255,.5)"
   container:
     height: "100%"
     width: "100%"
     padding: 40
     background: "linear-gradient(45deg, #{gradient[0]},#{gradient[1]})"
-  header:
-    margin: 0
-    fontFamily: "Roboto, sans-serif"
-    fontWeight: 900
-    fontSize: "10vw"
-    color: "#fff"

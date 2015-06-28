@@ -40,7 +40,8 @@ EmojiClock = React.createClass
 
 styles =
   emoji:
-    fontSize: 100
+    fontSize: 51
+    display: "inline-block"
 
 
 module.exports = EmojiClock

@@ -6,12 +6,19 @@ CoffeeQuote = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
   render: ->
     quote = "Time for dat coffee!"
-    <h1 style={styles.header}>{quote} <Emoji name="coffee" /></h1>
+    <blockquote>
+      <h1 style={styles.header}>
+        {quote}
+      </h1>
+      <Emoji code=":coffee:" />
+
+    </blockquote>
 
 module.exports = CoffeeQuote
 
 styles =
   header:
+    display: "inline"
     margin: 0
     fontFamily: "Roboto, sans-serif"
     fontWeight: 900
