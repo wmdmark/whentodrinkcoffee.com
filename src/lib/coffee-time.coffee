@@ -41,17 +41,20 @@ module.exports =
       range = @getClosestRange(hr)
     range
 
-  getNextStartDate: (hr)->
+  getRangeDate: (hr, which)->
     range = @getRange(hr)
-    
-    startHr = Math.floor(range.start)
-    startMinutes = (range.start * 60) - (startHr * 60)
-    console.log "startHr: ", startHr
-    console.log "startMinutes: ", startMinutes
-    date = moment().hour(range.start).minutes(startMinutes)
+    startHr = Math.floor(range[which])
+    startMinutes = (range[which] * 60) - (startHr * 60)
+    date = moment().hour(startHr).minutes(startMinutes)
     if range.end < hr
       date.add(1, "days")
     date
+    
+  getNextStartDate: (hr)->
+    @getRangeDate(hr, "start")
+
+  getNextEndDate: (hr)->
+    @getRangeDate(hr, "end")
 
   getClosestRange: (hr)->
     validRanges = _.filter coffeeTimes, (range)-> range.start >= hr
@@ -61,8 +64,8 @@ module.exports =
     else
       return validRanges[0]
 
-  isOutsideRange: (hr)->
-    !@getCurrentCoffeeRange(hr)
+  isOutsideRange: (hr)->!@isInRange(hr)
+  isInRange: (hr)-> @getCurrentCoffeeRange(hr)?
 
   getCurrentCoffeeRange: (hr)->
     range = _.find coffeeTimes, (range)-> hr >= range.start and hr < range.end

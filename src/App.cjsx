@@ -36,10 +36,24 @@ module.exports = React.createClass
     <div style={styles.container}>
       <CoffeeQuote {...@state} />
       <CoffeeCountdown {...@state} />
+      <footer style={styles.footer}>
+        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> hack/make Friday June 2015.
+      </footer>
     </div>
 
 gradient = gradients[2]
+
 styles =
+  link:
+    color: "#fff"
+  footer:
+    padding: "20px 0px"
+    color: "rgba(255,255,255, .6)"
+    textAlign: "center"
+    position: "absolute"
+    bottom: 0
+    left: 0
+    width: "100%"
   container:
     height: "100%"
     width: "100%"

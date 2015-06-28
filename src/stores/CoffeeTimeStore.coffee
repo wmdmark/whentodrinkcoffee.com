@@ -20,6 +20,8 @@ class CoffeeTimeStore
     @mood = ct.getMoodScore(@hr)
     @range = ct.getRange(@hr)
     @rangeStart = ct.getNextStartDate(@hr)
+    @rangeEnd = ct.getNextEndDate(@hr)
+    @inRange = ct.isInRange()
     minutes = (@hr * 60) - (Math.floor(@hr) * 60)
     @date = moment().hour(@hr).minutes(minutes)
 
