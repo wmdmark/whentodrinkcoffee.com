@@ -19,7 +19,7 @@ styles =
   emoji:
     margin: 0
     display: "inline-block"
-    fontSize: 100
+    fontSize: "10.21vw"
     # border: "1px solid red"
     # display: "inline-block"
     # maxWidth: 64

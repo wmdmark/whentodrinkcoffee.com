@@ -13,10 +13,10 @@ CoffeeQuote = React.createClass
       quote = "Uhg, not yet..."
       emoji = <Emoji code=":sad:" />
     <blockquote>
+      {emoji}
       <h1 style={styles.header}>
         {quote}
       </h1>
-      {emoji}
     </blockquote>
 
 module.exports = CoffeeQuote
