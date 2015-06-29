@@ -5,6 +5,7 @@ _ = require("underscore")
 emojis =
   ":coffee:": "&#9749;"
   ":clock:": "&#128347;"
+  ":sad:": "&#128532;"
 
 Emoji = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]

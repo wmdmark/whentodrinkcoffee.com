@@ -18,7 +18,7 @@ CoffeeCountdown = React.createClass
     if mood > .5
       exclaims = mood - .5 * 10
       label = "#{label}#{('!' for i in [0..exclaims]).join('')}"
-      
+
 
     <div>
       <EmojiClock speed={speed} />

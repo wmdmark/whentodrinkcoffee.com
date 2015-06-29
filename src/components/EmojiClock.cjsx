@@ -26,7 +26,6 @@ EmojiClock = React.createClass
   componentWillReceiveProps: (nextProps) -> @setSpeed(nextProps.speed)
 
   setSpeed: (speed)->
-    console.log "setSpeed: ", speed
     clearInterval(@interval) if @interval
     @interval = setInterval(this.doTick, speed)
 

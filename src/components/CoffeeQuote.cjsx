@@ -5,12 +5,18 @@ Emoji = require("./Emoji")
 CoffeeQuote = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
   render: ->
-    quote = "Time for dat coffee!"
+    emoji = null
+    if @props.inRange
+      quote = "It's coffee time!"
+      emoji = <Emoji code=":coffee:" />
+    else
+      quote = "Uhg, not yet..."
+      emoji = <Emoji code=":sad:" />
     <blockquote>
       <h1 style={styles.header}>
         {quote}
       </h1>
-      <Emoji code=":coffee:" />
+      {emoji}
     </blockquote>
 
 module.exports = CoffeeQuote

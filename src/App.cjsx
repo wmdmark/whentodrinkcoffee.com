@@ -15,17 +15,13 @@ module.exports = React.createClass
 
   componentDidMount: ->
     CoffeeTimeStore.listen(@onChange)
+    CoffeeTimeActions.startTimer()
 
   componentWillUnmount: ->
     CoffeeTimeStore.unlisten(@onChange)
-  
+
   onChange: ->
     @setState(CoffeeTimeStore.getState())
-
-  tick: ->
-    hr = CoffeeTime.getCurrentHourDecimal()
-    this.setState
-      mood: CoffeeTime.getMoodScore(hr)
 
   timeTravel: (e)->
     CoffeeTimeActions.setHour(e.target.value)
@@ -36,16 +32,16 @@ module.exports = React.createClass
     gradientStyle =
       background: "linear-gradient(45deg,#{gs},#{ge})"
     containerStyle = _.extend(styles.container, gradientStyle)
-    
-    console.log 'App.render()'
 
     <div style={containerStyle}>
-      
+
       <CoffeeQuote {...@state} />
       <CoffeeCountdown {...@state} />
       <footer style={styles.footer}>
-        
-        <input ref="hour" type="range" value={Math.floor(@state.hr)} min={0} max={24} step={.1} onChange={@timeTravel} />
+        <div style={styles.timetravel}>
+          <input ref="hour" type="range" value={@state.hr} min={0} max={24} step={.001} onChange={@timeTravel} />
+          <span>{@state.date.format("HH:mm")}</span>
+        </div>
 
         Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> hack/make Friday June 2015.
       </footer>
@@ -66,3 +62,5 @@ styles =
     height: "100%"
     width: "100%"
     padding: "4vw"
+    WebkitTransition: "background 10s ease-out"
+    transition: "background 10s ease-out"
