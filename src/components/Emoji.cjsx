@@ -1,24 +1,20 @@
 React = require 'react'
 _ = require("underscore")
 
-
-emojis =
-  ":coffee:": "&#9749;"
-  ":clock:": "&#128347;"
-  ":sad:": "&#128532;"
+Quotes = require("../lib/quotes")
 
 Emoji = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
   render: ->
     style = styles.emoji
     _.extend style, @props.style if @props.style
-    emoji = emojis[@props.code]
+    emoji = Quotes.getEmojiByCode(@props.code)
     <div style={style} dangerouslySetInnerHTML={__html: emoji}></div>
 
 styles =
   emoji:
     margin: 0
-    display: "inline-block"
+    display: "block"
     fontSize: "10.21vw"
     # border: "1px solid red"
     # display: "inline-block"

@@ -43,6 +43,7 @@ module.exports = React.createClass
           <span>{@state.date.format("HH:mm")}</span>
         </div>
 
+        The best time to drink coffee based on <a style={styles.link} href="http://en.ilovecoffee.jp/posts/view/110">science.</a><br/>
         Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> hack/make Friday June 2015.
       </footer>
     </div>
@@ -60,6 +61,7 @@ styles =
     width: "100%"
   container:
     height: "100%"
+    textAlign: "center"
     width: "100%"
     padding: "4vw"
     WebkitTransition: "background 10s ease-out"

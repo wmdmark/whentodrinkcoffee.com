@@ -48,9 +48,7 @@ class CoffeeTimeStore
   setColors: ->
     [g1, g2] = @getGradients()
     perc = @hr/24
-    console.log "perc: #{perc}"
     c1 = chroma.interpolate(g1[0], g2[0], perc).hex()
-    console.log "interpolated: ", c1, g1[0], g2[0]
     c2 = chroma.interpolate(g1[1], g2[1], perc).hex()
     @gradient = [c1, c2]
 

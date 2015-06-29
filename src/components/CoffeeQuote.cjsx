@@ -1,19 +1,27 @@
 React = require 'react'
 
+Quotes = require("../lib/quotes")
+
 Emoji = require("./Emoji")
 
 CoffeeQuote = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
+
+  setDocTitle: (emojiCode)->
+    emoji  = Quotes.getEmojiByCode(emojiCode)
+    # HACK alert
+    if @props.inRange 
+      thumb = Quotes.getEmojiByCode(":thumbs_up:")
+    else 
+      thumb = Quotes.getEmojiByCode(":thumbs_down:")
+    document.title =  emoji + thumb
+
   render: ->
-    emoji = null
-    if @props.inRange
-      quote = "It's coffee time!"
-      emoji = <Emoji code=":coffee:" />
-    else
-      quote = "Uhg, not yet..."
-      emoji = <Emoji code=":sad:" />
+    emojiCode = Quotes.getEmoji(@props.hr)
+    quote = Quotes.getQuote(@props.hr)
+    @setDocTitle(emojiCode)
     <blockquote>
-      {emoji}
+      <Emoji code={emojiCode} />
       <h1 style={styles.header}>
         {quote}
       </h1>
