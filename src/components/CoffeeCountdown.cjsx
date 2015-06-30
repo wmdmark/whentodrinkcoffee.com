@@ -19,11 +19,10 @@ CoffeeCountdown = React.createClass
       exclaims = mood - .5 * 10
       label = "#{label}#{('!' for i in [0..exclaims]).join('')}"
 
-
     <div>
       <EmojiClock speed={speed} />
-      <h3 style={styles.label}>{label}</h3>
-      <p style={{color:"#fff"}}>{rangeLabel}</p>
+      <h3 style={styles.label}>{label}<sup>*</sup></h3>
+      <p style={{color:"#fff"}}><sup>*</sup>{rangeLabel}</p>
     </div>
 
 styles =
@@ -35,5 +34,7 @@ styles =
     color: "#fff"
     fontWeight: 100
     verticalAlign: "middle"
+    position: "relative"
+    top: -2
 
 module.exports = CoffeeCountdown

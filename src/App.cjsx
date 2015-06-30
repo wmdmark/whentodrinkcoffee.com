@@ -5,6 +5,7 @@ CoffeeTimeStore = require("./stores/CoffeeTimeStore")
 CoffeeTimeActions = require("./actions/CoffeeTimeActions")
 CoffeeQuote = require("./components/CoffeeQuote")
 CoffeeCountdown = require("./components/CoffeeCountdown")
+TimeSlider = require("./components/TimeSlider")
 
 module.exports = React.createClass
   mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
@@ -23,8 +24,8 @@ module.exports = React.createClass
   onChange: ->
     @setState(CoffeeTimeStore.getState())
 
-  timeTravel: (e)->
-    CoffeeTimeActions.setHour(e.target.value)
+  timeTravel: (value)->
+    CoffeeTimeActions.setHour(value)
 
   render: ->
     {gradient, mood} = @state
@@ -34,17 +35,13 @@ module.exports = React.createClass
     containerStyle = _.extend(styles.container, gradientStyle)
 
     <div style={containerStyle}>
-
+      <TimeSlider onChange={this.timeTravel} {...@state}  />
       <CoffeeQuote {...@state} />
       <CoffeeCountdown {...@state} />
       <footer style={styles.footer}>
-        <div style={styles.timetravel}>
-          <input ref="hour" type="range" value={@state.hr} min={0} max={24} step={.001} onChange={@timeTravel} />
-          <span>{@state.date.format("HH:mm")}</span>
-        </div>
 
         The best time to drink coffee based on <a style={styles.link} href="http://en.ilovecoffee.jp/posts/view/110">science.</a><br/>
-        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> hack/make Friday June 2015.
+        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> Halfbake June 2015.
       </footer>
     </div>
 

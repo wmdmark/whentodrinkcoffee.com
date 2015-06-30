@@ -15,10 +15,6 @@ styles =
   emoji:
     margin: 0
     display: "block"
-    fontSize: "10.21vw"
-    # border: "1px solid red"
-    # display: "inline-block"
-    # maxWidth: 64
-    # maxHeight: 64
+    fontSize: "8vw"
 
 module.exports = Emoji

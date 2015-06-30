@@ -10,9 +10,9 @@ CoffeeQuote = React.createClass
   setDocTitle: (emojiCode)->
     emoji  = Quotes.getEmojiByCode(emojiCode)
     # HACK alert
-    if @props.inRange 
+    if @props.inRange
       thumb = Quotes.getEmojiByCode(":thumbs_up:")
-    else 
+    else
       thumb = Quotes.getEmojiByCode(":thumbs_down:")
     document.title =  emoji + thumb
 
