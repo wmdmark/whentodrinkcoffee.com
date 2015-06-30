@@ -1,7 +1,6 @@
 ct = require("./coffee-time")
 
 emojiMap =
-  ":coffee:": "☕️"
   ":thumbs_up:": "👍"
   ":thumbs_down:": "👎"
   ":happy:": "😃"

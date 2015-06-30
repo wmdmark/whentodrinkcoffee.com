@@ -4,23 +4,16 @@
   "description": "Now",
   "scripts": {
     "start": "node server.js",
-    "build-prod": "webpack -p --config webpack.production.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
+    "build-prod": "webpack --config webpack.production.config.js"
   },
   "keywords": [
     "react",
     "reactjs",
     "radium"
   ],
-  "author": "Jonathan Hudak <hudak.jonathan@gmail.com> (http://github.com/hudakdidit)",
+  "author": "Mark Johnson",
   "license": "MIT",
-  "bugs": {
-    "url": ""
-  },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
+  "homepage": "http://whentodrinkcoffee.com",
   "devDependencies": {
     "babel-core": "^4.7.4",
     "babel-loader": "^4.1.0",
