@@ -14,7 +14,8 @@ CoffeeQuote = React.createClass
       thumb = Quotes.getEmojiByCode(":thumbs_up:")
     else
       thumb = Quotes.getEmojiByCode(":thumbs_down:")
-    document.title =  emoji + thumb
+    document.querySelector('title').innerHTML = emoji + thumb
+    #document.title =  emoji + thumb
 
   render: ->
     emojiCode = Quotes.getEmoji(@props.hr)

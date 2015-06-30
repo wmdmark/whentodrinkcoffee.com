@@ -4,7 +4,7 @@
   "description": "Now",
   "scripts": {
     "start": "node server.js",
-    "build-prod": "webpack --config webpack.production.config.js"
+    "build-prod": "webpack -p --config webpack.prod.config.js"
   },
   "keywords": [
     "react",

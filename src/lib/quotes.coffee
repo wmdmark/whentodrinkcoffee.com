@@ -1,17 +1,19 @@
 ct = require("./coffee-time")
 
-emojiMap =
-  ":thumbs_up:": "👍"
-  ":thumbs_down:": "👎"
-  ":happy:": "😃"
-  ":happy_heart:": "😍"
-  ":savour:": "😋"
-  ":cool_happy:": "😎"
 
-  ":sadder:": "😭"
-  ":sad:": "😢"
-  ":scream:": "😱"
-  ":weary:": "😩"
+
+emojiMap =
+  ":thumbs_up:": "&#128077;"
+  ":thumbs_down:": "&#128078;"
+  ":happy:": "&#128515;"
+  ":happy_heart:": "&#128525;"
+  ":savour:": "&#x1f60b;"
+  ":cool_happy:": "&#x1f60e;"
+
+  ":sadder:": "&#128557;"
+  ":sad:": "&#128546;"
+  ":scream:": "&#128561;"
+  ":weary:": "&#128553;"
 
 quotes =
   coffeeTime: [

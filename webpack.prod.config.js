@@ -8,16 +8,9 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/scripts/'
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
-    // This cuts down React's lib size on production.
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
-    }),    
+    new webpack.NoErrorsPlugin()
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.cjsx', '.coffee']
