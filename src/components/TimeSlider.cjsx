@@ -18,6 +18,6 @@ styles =
     padding: 5
     backgroundColor: "rgba(0,0,0,.5)"
     color: "#fff"
-    fontWeight: 900
+    fontWeight: 100
 
 module.exports = TimeSlider

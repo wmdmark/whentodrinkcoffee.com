@@ -11,12 +11,12 @@ emojiMap =
 
   ":sadder:": "😭"
   ":sad:": "😢"
-  ":scream:": "😱"  
+  ":scream:": "😱"
   ":weary:": "😩"
 
 quotes =
   coffeeTime: [
-    "Ah yeah, time for coffee",
+    "Ah yeah, coffee time",
     "So much coffee"
     "Get dat coffee"
     "Moar coffee"

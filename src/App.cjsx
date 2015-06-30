@@ -29,9 +29,9 @@ module.exports = React.createClass
 
   render: ->
     {gradient, mood} = @state
-    [gs, ge] = gradient
     gradientStyle =
-      background: "linear-gradient(45deg,#{gs},#{ge})"
+      #background: "linear-gradient(45deg,#{gs},#{ge})"
+      background: "linear-gradient(45deg,#{gradient})"
     containerStyle = _.extend(styles.container, gradientStyle)
 
     <div style={containerStyle}>
@@ -39,9 +39,8 @@ module.exports = React.createClass
       <CoffeeQuote {...@state} />
       <CoffeeCountdown {...@state} />
       <footer style={styles.footer}>
-
         The best time to drink coffee based on <a style={styles.link} href="http://en.ilovecoffee.jp/posts/view/110">science.</a><br/>
-        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> Halfbake June 2015.
+        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> Halfbake, June 2015.
       </footer>
     </div>
 
@@ -56,10 +55,12 @@ styles =
     bottom: 0
     left: 0
     width: "100%"
+    lineHeight: 1.5
+    fontSize: 18
   container:
     height: "100%"
     textAlign: "center"
     width: "100%"
     padding: "4vw"
-    WebkitTransition: "background 10s ease-out"
-    transition: "background 10s ease-out"
+    # WebkitTransition: "background 10s ease-out"
+    # transition: "background 10s ease-out"

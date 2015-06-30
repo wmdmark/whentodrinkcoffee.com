@@ -36,3 +36,4 @@ styles =
     fontWeight: 900
     fontSize: "10vw"
     color: "#fff"
+    #textShadow: "2px 2px 20px rgba(0,0,0,.25)"
