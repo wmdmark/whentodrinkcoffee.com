@@ -4,7 +4,6 @@ _ = require("underscore")
 Quotes = require("../lib/quotes")
 
 Emoji = React.createClass
-  mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
   render: ->
     style = styles.emoji
     _.extend style, @props.style if @props.style
@@ -15,6 +14,9 @@ styles =
   emoji:
     margin: 0
     display: "block"
-    fontSize: "8vw"
+    fontSize: "11vw"
+    '@media (max-width: 500px)':
+      fontSize: "101px"
 
-module.exports = Emoji
+
+module.exports = Radium(Emoji)

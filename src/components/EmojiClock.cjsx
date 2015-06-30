@@ -15,8 +15,6 @@ clockStates = [ "&#128347;",
 
 EmojiClock = React.createClass
 
-  mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
-
   getInitialState: ->
     clockEmoji: clockStates[0]
     tick: 1
@@ -45,6 +43,9 @@ styles =
     fontSize: "3.5vw"
     display: "inline-block"
     verticalAlign: "middle"
+    '@media (max-width: 500px)':
+      fontSize: "36px"
 
 
-module.exports = EmojiClock
+
+module.exports = Radium(EmojiClock)

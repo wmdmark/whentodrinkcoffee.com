@@ -20,4 +20,4 @@ styles =
     color: "#fff"
     fontWeight: 100
 
-module.exports = TimeSlider
+module.exports = Radium(TimeSlider)

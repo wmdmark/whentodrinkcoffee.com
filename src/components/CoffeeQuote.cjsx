@@ -5,8 +5,7 @@ Quotes = require("../lib/quotes")
 Emoji = require("./Emoji")
 
 CoffeeQuote = React.createClass
-  mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
-
+ 
   setDocTitle: (emojiCode)->
     emoji  = Quotes.getEmojiByCode(emojiCode)
     # HACK alert
@@ -28,7 +27,7 @@ CoffeeQuote = React.createClass
       </h1>
     </blockquote>
 
-module.exports = CoffeeQuote
+module.exports = Radium(CoffeeQuote)
 
 styles =
   header:
@@ -37,4 +36,5 @@ styles =
     fontWeight: 900
     fontSize: "10vw"
     color: "#fff"
-    #textShadow: "2px 2px 20px rgba(0,0,0,.25)"
+    '@media (max-width: 500px)':
+      fontSize: "64px"

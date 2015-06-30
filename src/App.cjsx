@@ -7,8 +7,7 @@ CoffeeQuote = require("./components/CoffeeQuote")
 CoffeeCountdown = require("./components/CoffeeCountdown")
 TimeSlider = require("./components/TimeSlider")
 
-module.exports = React.createClass
-  mixins: [Radium.StyleResolverMixin, Radium.BrowserStateMixin]
+App = React.createClass
   displayName: 'App'
 
   getInitialState: ->
@@ -44,6 +43,8 @@ module.exports = React.createClass
       </footer>
     </div>
 
+module.exports = Radium(App)
+
 styles =
   link:
     color: "#fff"
@@ -56,7 +57,7 @@ styles =
     left: 0
     width: "100%"
     lineHeight: 1.5
-    fontSize: 18
+    fontSize: 15
   container:
     height: "100%"
     textAlign: "center"
