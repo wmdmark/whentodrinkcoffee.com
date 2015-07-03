@@ -39,7 +39,7 @@ App = React.createClass
       <CoffeeCountdown {...@state} />
       <footer style={styles.footer}>
         The best time to drink coffee based on <a style={styles.link} href="http://en.ilovecoffee.jp/posts/view/110">science.</a><br/>
-        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="https://www.pathwright.com/" style={styles.link}>Pathwright</a> Halfbake, June 2015.
+        Created by <a href="https://twitter.com/wmdmark" style={styles.link}>@wmdmark</a> for <a href="http://blog.pathwright.com/blog/2015/6/30/half-bake-coffee-time-1" style={styles.link}>Pathwright Halfbake</a>.
       </footer>
     </div>
 
