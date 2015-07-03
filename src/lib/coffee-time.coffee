@@ -19,7 +19,6 @@ module.exports =
     if currentRange
       # Inside range: score based on closeness to peak
       score = 0.5
-
       timeScore = @getCoffeeTimeScore(hr) - score
       if timeScore > 0
         score = score + timeScore
@@ -58,7 +57,6 @@ module.exports =
   getClosestRange: (hr)->
     validRanges = _.filter coffeeTimes, (range)-> range.start >= hr
     if not validRanges.length
-      # circle around
       return coffeeTimes[0]
     else
       return validRanges[0]
@@ -71,7 +69,6 @@ module.exports =
     range
 
   getCoffeeTimeScore: (hr)->
-    # returns a number0
     score = 0
     range = @getCurrentCoffeeRange(hr)
     if range

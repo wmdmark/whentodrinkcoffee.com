@@ -5,16 +5,14 @@ Quotes = require("../lib/quotes")
 Emoji = require("./Emoji")
 
 CoffeeQuote = React.createClass
- 
+
   setDocTitle: (emojiCode)->
     emoji  = Quotes.getEmojiByCode(emojiCode)
-    # HACK alert
     if @props.inRange
       thumb = Quotes.getEmojiByCode(":thumbs_up:")
     else
       thumb = Quotes.getEmojiByCode(":thumbs_down:")
     document.querySelector('title').innerHTML = emoji + thumb
-    #document.title =  emoji + thumb
 
   render: ->
     emojiCode = Quotes.getEmoji(@props.hr)

@@ -12,7 +12,6 @@ TimeSlider = React.createClass
       <input ref="hour" type="range" value={@props.hr} min={0} max={24} step={.001} onChange={this.onChange} />
     </div>
 
-
 styles =
   timer:
     padding: 5

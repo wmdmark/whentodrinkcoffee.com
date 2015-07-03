@@ -28,7 +28,6 @@ App = React.createClass
   render: ->
     {gradient, mood} = @state
     gradientStyle =
-      #background: "linear-gradient(45deg,#{gs},#{ge})"
       background: "linear-gradient(45deg,#{gradient})"
     containerStyle = _.extend(styles.container, gradientStyle)
 
@@ -62,5 +61,3 @@ styles =
     textAlign: "center"
     width: "100%"
     padding: "4vw"
-    # WebkitTransition: "background 10s ease-out"
-    # transition: "background 10s ease-out"

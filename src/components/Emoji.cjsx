@@ -18,5 +18,4 @@ styles =
     '@media (max-width: 500px)':
       fontSize: "101px"
 
-
 module.exports = Radium(Emoji)
