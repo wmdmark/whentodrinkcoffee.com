@@ -1,10 +1,14 @@
 moment = require("moment")
 
+FacebookButton = require("react-social").FacebookButton
+FacebookCount = require("react-social").FacebookCount
+
 CoffeeTimeStore = require("./stores/CoffeeTimeStore")
 CoffeeTimeActions = require("./actions/CoffeeTimeActions")
 CoffeeQuote = require("./components/CoffeeQuote")
 CoffeeCountdown = require("./components/CoffeeCountdown")
 TimeSlider = require("./components/TimeSlider")
+
 
 App = React.createClass
   displayName: 'App'
@@ -30,6 +34,12 @@ App = React.createClass
     gradientStyle =
       background: "linear-gradient(45deg,#{gradient})"
     containerStyle = _.extend(styles.container, gradientStyle)
+
+    shareURL = "http://whentodrinkcoffee.com"
+    shareComponents = <FacebookButton url={shareURL}>
+                        <FacebookCount url={shareURL} />
+                        Share
+                      </FacebookButton>
 
     <div style={containerStyle}>
       <TimeSlider onChange={this.timeTravel} {...@state}  />
