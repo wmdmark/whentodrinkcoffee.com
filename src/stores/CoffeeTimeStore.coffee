@@ -1,7 +1,5 @@
 moment = require("moment")
 alt = require("../alt")
-Color = require("color")
-chroma = require("chroma-js")
 ct = require("../lib/coffee-time")
 
 gradients = [
@@ -81,12 +79,6 @@ class CoffeeTimeStore
 
   setColors: ->
     @gradient = @getSkyGradient()
-    # [g1, g2] = @getGradients()
-    # perc = @hr/24
-    # c1 = chroma.interpolate(g1[0], g2[0], perc).hex()
-    # c2 = chroma.interpolate(g1[1], g2[1], perc).hex()
-    # @gradient = [c1, c2]
-
 
   calcState: ->
     @mood = ct.getMoodScore(@hr)

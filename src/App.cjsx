@@ -1,5 +1,4 @@
 moment = require("moment")
-ReactSlider = require("react-slider")
 
 CoffeeTimeStore = require("./stores/CoffeeTimeStore")
 CoffeeTimeActions = require("./actions/CoffeeTimeActions")

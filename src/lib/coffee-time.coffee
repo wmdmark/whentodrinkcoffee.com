@@ -8,7 +8,6 @@ coffeeTimes = [
 maxDiffHours = 2
 
 module.exports =
-  # TODO: convert to store!
 
   getCurrentHourDecimal: ->
     moment().hours() + moment().minutes()/60
@@ -49,7 +48,7 @@ module.exports =
     if range.end < hr
       date.add(1, "days")
     date
-    
+
   getNextStartDate: (hr)->
     @getRangeDate(hr, "start")
 
